@@ -9,4 +9,5 @@ export const AppWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   font-family: 'Noto Sans TC', sans-serif;
+  overflow: hidden;
 `;

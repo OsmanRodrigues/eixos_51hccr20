@@ -5,7 +5,6 @@ export const ConnectionWrapper=styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: none;
   height: 100%;
   width: 100%;
   padding: 15% 15%;
