@@ -27,7 +27,6 @@ const LoginPage=()=>{
     history.replace('/connect');
   };
 
-  //console.log(inputForm)
   return(
     <LoginWrapper>
       <Logo src={logo}/>

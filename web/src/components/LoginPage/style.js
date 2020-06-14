@@ -19,7 +19,7 @@ export const LoginWrapper = styled.main`
   padding: 5%;
 `;
 export const Logo = styled.img`
-  width: 128px;
+  width: 256px;
 `;
 export const CheckDialog = styled.p`
   color: #f5f5f5;
