@@ -20,26 +20,26 @@ export const AlertDialog = styled.p`
   text-align: justify;
 `;
 export const ImageIcon = styled.img`
-  height: 62px;
+  height: 72px;
   width:96px;
 `;
 export const DeviceName = styled.span`
 
 `;
 export const DeviceButton = styled.button`
-  height: 116px;
+  height:78px;
   width:296px;
   font-size: small;
   background-color: #eeeeee;
   border: 1px solid #bbbbbb;
-  border-radius: 4px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
   color: gray;
   padding: 0;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-content: flex-star;
-  display: inline-block;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   margin: 4px 0px 0px 0px;
   cursor: pointer;
   &:hover{
@@ -49,14 +49,20 @@ export const DeviceButton = styled.button`
   &:active{
     background: #cccccc;
     outline: none;
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.5)
+  };
+  &:focus{
+    outline: none;
   };
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 `;
 export const SearchButton = styled.button`
-  height: 116px;
+  height: 78px;
   width:296px;
   font-size: xx-small;
   background-color: #f0f0f0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   border: none;
   color: solid black;
   padding: 0;
@@ -71,6 +77,10 @@ export const SearchButton = styled.button`
   };
   &:active{
     background: #cccccc;
+    outline: none;
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.5)
+  };
+  &:focus{
     outline: none;
   };
   -webkit-tap-highlight-color: rgba(0,0,0,0);

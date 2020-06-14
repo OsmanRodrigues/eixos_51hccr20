@@ -60,7 +60,7 @@ const ConnectionPage=()=>{
 
           <SloganText>
             Viaje com saúde,<br/> 
-            viaje com <HighlightText>EIXOS</HighlightText>
+            viaje com <HighlightText>EIXOS</HighlightText>.
           </SloganText>
         </ConditionalContent>
       }
