@@ -4,8 +4,8 @@ import {useHistory} from 'react-router-dom';
 import {
   LoginWrapper, Logo, CheckDialog,
   AlertDialog, ValidIcon, LoginForm,
-  LoginInput, ConnectButton, LoginIcon,
-  InvalidIcon
+  LoginInput, InvalidButton, ValidButton, 
+  LoginIcon, InvalidIcon
 } from './style';
 import {
   RiBluetoothLine, RiCheckboxCircleLine, RiCheckboxBlankCircleLine
@@ -26,11 +26,9 @@ const LoginPage=()=>{
     e.preventDefault();
     history.replace('/connect');
   };
-
   return(
     <LoginWrapper>
       <Logo src={logo}/>
-      <testIcon/>
       <AlertDialog>
         <CheckDialog>
           <ValidIcon>
@@ -44,9 +42,12 @@ const LoginPage=()=>{
           </ValidIcon>
           Ative o bluetooth <RiBluetoothLine/></CheckDialog>
         <CheckDialog>
-          <InvalidIcon>
-            <RiCheckboxBlankCircleLine/>
-          </InvalidIcon>
+          {
+            inputForm.length < 5 ?
+            <InvalidIcon><RiCheckboxBlankCircleLine/></InvalidIcon> 
+            : 
+            <ValidIcon><RiCheckboxCircleLine/></ValidIcon>
+          }
           Digite:
         </CheckDialog>
       </AlertDialog>
@@ -56,10 +57,17 @@ const LoginPage=()=>{
           required
           placeholder='sua matrícula aqui'
           type='text'
+          minLength={5}
           value={inputForm}
           onChange={handleInputChange}
+          title='Digite sua matrícula com no mínimo 5 digitos.'
         />
-        <ConnectButton>Conectar</ConnectButton>
+        {
+            inputForm.length < 5 ?
+            <InvalidButton>Conectar</InvalidButton>
+            : 
+            <ValidButton>Conectar</ValidButton>
+          }
       </LoginForm>
 
       <LoginIcon src={smartphone_connection}/>

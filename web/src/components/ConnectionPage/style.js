@@ -52,6 +52,7 @@ export const DeviceButton = styled.button`
   };
   &:focus{
     outline: none;
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.5)
   };
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 `;
@@ -134,18 +135,23 @@ export const ReconfirmButton = styled.button`
   };
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 `;
-export const SuccessDialog = styled.h2`
+export const SuccessDialog = styled.h1`
 
 `;
 export const StatusDialog = styled.span`
   color: #257D23;
+  font-size: x-large;
+  
 `;
 export const StatusIcon = styled.img`
   height: 296px;
   width:296px;
 `;
 export const SloganText = styled.p`
+  position: fixed;
 
+  top: 80vh;
+  
 `;
 export const HighlightText = styled.span`
   color: #b00000;
