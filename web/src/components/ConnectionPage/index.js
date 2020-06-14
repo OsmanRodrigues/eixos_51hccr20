@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {useHistory} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 
 import {
   ConnectionWrapper, AlertDialog, DeviceButton,
@@ -15,10 +15,9 @@ import bandRed from '../../assets/band_red.png';
 
 const ConnectionPage=()=>{
   const history = useHistory();
-
+  const {userId} = useParams();
   const [connected, setConnected] = useState(false);
-  const [selectedDevice, setSelectedDevice] = useState('MiBand 4')
-  const userId = '000000';
+  const [selectedDevice, setSelectedDevice] = useState('MiBand 4');
 
   return(
     <ConnectionWrapper>

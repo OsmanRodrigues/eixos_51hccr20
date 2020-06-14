@@ -24,7 +24,7 @@ const LoginPage=()=>{
   //TODO request
   const handleLogin =(e)=>{
     e.preventDefault();
-    history.replace('/connect');
+    history.replace(`/connect/${inputForm}`);
   };
   return(
     <LoginWrapper>
