@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
 import {
   ConnectionWrapper, AlertDialog, DeviceButton,
@@ -13,6 +14,7 @@ import band from '../../assets/band.png';
 import bandRed from '../../assets/band_red.png';
 
 const ConnectionPage=()=>{
+  const history = useHistory();
 
   const [connected, setConnected] = useState(false);
   const [selectedDevice, setSelectedDevice] = useState('MiBand 4')
@@ -46,7 +48,9 @@ const ConnectionPage=()=>{
             Sim, confirmo
           </ConfirmButton>
 
-          <ReconfirmButton>Essa não é minha matrícula</ReconfirmButton>
+          <ReconfirmButton onClick={()=> history.replace('/')}>
+            Essa não é minha matrícula
+          </ReconfirmButton>
         </ConditionalContent>
         :
         <ConditionalContent>
