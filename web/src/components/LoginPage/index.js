@@ -1,54 +1,68 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 
 import {
-  LoginWrapper, Logo, WelcomeDialog,
-  AlertDialog, ConfirmDialog, LoginForm,
+  LoginWrapper, Logo, CheckDialog,
+  AlertDialog, ValidIcon, LoginForm,
   LoginInput, ConnectButton, LoginIcon,
-  HighlightText
+  InvalidIcon
 } from './style';
-import {RiBluetoothLine} from 'react-icons/ri';
+import {
+  RiBluetoothLine, RiCheckboxCircleLine, RiCheckboxBlankCircleLine
+} from 'react-icons/ri';
 import logo from '../../assets/logo.png';
 import smartphone_connection from '../../assets/smartphone_conection.png';
 
 const LoginPage=()=>{
 
+  const history = useHistory();
+  const [inputForm, setInputForm] = useState('');
+
+  const handleInputChange=(e)=>{
+    setInputForm(e.target.value);
+  };
+  //TODO request
+  const handleLogin =(e)=>{
+    e.preventDefault();
+    history.replace('/connect');
+  };
+
   return(
     <LoginWrapper>
-
       <Logo src={logo}/>
-
-      <WelcomeDialog>
-        Está com sua smartband <HighlightText>
-        ligada
-        </HighlightText> para <HighlightText>
-        conectar-se
-        </HighlightText> à um futuro saudável?
-        <br/>
-        <AlertDialog>
-          O bluetooth também precisa estar ativo <RiBluetoothLine/>
-        </AlertDialog>
-      </WelcomeDialog>
-
-      <ConfirmDialog>
-      Protegemos seus dados pessoais, então só 
-      <br/>
-      precisamos que <HighlightText>
-        digite
-      </HighlightText>
-      </ConfirmDialog>
-
-      <LoginForm>
+      <testIcon/>
+      <AlertDialog>
+        <CheckDialog>
+          <ValidIcon>
+            <RiCheckboxCircleLine/>
+          </ValidIcon> 
+          Ligue sua pulseira
+        </CheckDialog>
+        <CheckDialog>
+          <ValidIcon>
+              <RiCheckboxCircleLine/>
+          </ValidIcon>
+          Ative o bluetooth <RiBluetoothLine/></CheckDialog>
+        <CheckDialog>
+          <InvalidIcon>
+            <RiCheckboxBlankCircleLine/>
+          </InvalidIcon>
+          Digite:
+        </CheckDialog>
+      </AlertDialog>
+  
+      <LoginForm onSubmit={handleLogin}>
         <LoginInput
           required
           placeholder='sua matrícula aqui'
           type='text'
+          value={inputForm}
+          onChange={handleInputChange}
         />
         <ConnectButton>Conectar</ConnectButton>
       </LoginForm>
 
-      <LoginIcon>
-        <Logo src={smartphone_connection}/>
-      </LoginIcon>
+      <LoginIcon src={smartphone_connection}/>
     </LoginWrapper>
   )
 };
