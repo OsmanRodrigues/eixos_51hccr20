@@ -59,7 +59,7 @@ export const DeviceButton = styled.button`
 export const SearchButton = styled.button`
   height: 78px;
   width:296px;
-  font-size: xx-small;
+  font-size: x-small;
   background-color: #f0f0f0;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -141,17 +141,15 @@ export const SuccessDialog = styled.h1`
 export const StatusDialog = styled.span`
   color: #257D23;
   font-size: x-large;
-  
 `;
 export const StatusIcon = styled.img`
   height: 296px;
   width:296px;
 `;
 export const SloganText = styled.p`
+  font-size: large;
   position: fixed;
-
   top: 80vh;
-  
 `;
 export const HighlightText = styled.span`
   color: #b00000;
