@@ -119,14 +119,10 @@ const ConnectionPage=()=>{
               Desconectar
             </DisconnectButton>
 
-            <FireflyIcon>
-              {heartbeat === false ? 
-              <HighlightIcon></HighlightIcon>
-              :
-              <HighlightIcon><BsHeartFill/></HighlightIcon>}
+            <StatusDialog>{beat} bpm</StatusDialog>
+            <StatusIcon src={bandRed}/>
+            
 
-              <StatusIcon src={bandRed}/>
-            </FireflyIcon>
 
             <SloganText>
               Viaje com saúde,<br/> 
