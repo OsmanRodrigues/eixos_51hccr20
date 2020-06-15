@@ -42,6 +42,7 @@ build/
 node_modules/
 jspm_packages/
 !uploads/.gitkeep
+!services/.gitkeep
 *sqlite
 
 # TypeScript v1 declaration files

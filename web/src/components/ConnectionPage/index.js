@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-import api from '../../services/api';
+import {database_url} from '../../services/api';
 import isWebBluetoothEnabled from '../../utils/checkBTCompatibility'
 import  heartBeat  from '../../utils/bandConnector'
 
@@ -28,10 +28,8 @@ const ConnectionPage=()=>{
   const [connected, setConnected] = useState(false);
   const [heartbeat, setHeartbeat] = useState(false);
   
-  const [selectedDevice, setSelectedDevice] = useState('');
+  const [selectedDevice, setSelectedDevice] = useState('Selecione um dispositivo');
   const [beat,setBeat] = useState(0);
-  
-  const database_url = "https://hackccr20-62d92.firebaseio.com"
 
   // Example POST method implementation:
   const postData = async (url = '', data = {}) => {
@@ -45,20 +43,16 @@ const ConnectionPage=()=>{
       body: JSON.stringify(data) // body data type must match "Content-Type" header
     });
     return response.json(); // parses JSON response into native JavaScript objects
-  }
-
+  };
   const handleHeartNotification = (event) => {
     let value = event.target.value;
     setBeat(value.getUint16());
     postData(database_url + "/time_data.json", {
-        name: "joao",
+        name: userId,
         time: Date.now(),
         batimentos : value.getUint16()
-    }).then(data => {
-      console.log(data); // JSON data parsed by `response.json()` call
-    });
-  }
-
+    })
+  };
   const  scanForDevices = async () => {
     if(isWebBluetoothEnabled()){
       let name = await heartBeat(handleHeartNotification);
@@ -66,8 +60,7 @@ const ConnectionPage=()=>{
     }else{
       // enable flag
     }
-  }
-  
+  };
   const conditionalRender=()=>{
     if(loadingView === true){
       return(
@@ -101,7 +94,7 @@ const ConnectionPage=()=>{
             Sim, confirmo
           </ConfirmButton>
 
-          <ReconfirmButton onClick={()=> history.replace('/')}>
+          <ReconfirmButton onClick={()=> {localStorage.clear(); history.replace('/')}}>
             Essa não é minha matrícula
           </ReconfirmButton>
         </ConditionalContent>
@@ -114,11 +107,13 @@ const ConnectionPage=()=>{
             </SuccessDialog>
 
             <StatusDialog>Você está conectado</StatusDialog>
-
+            
+            <StatusDialog>{beat} bpm</StatusDialog>
+            
             <DisconnectButton onClick={()=> {setConnected(false)}}>
               Desconectar
             </DisconnectButton>
-
+            
             <FireflyIcon>
               {heartbeat === false ? 
               <HighlightIcon></HighlightIcon>
@@ -147,7 +142,9 @@ const ConnectionPage=()=>{
       window.setTimeout( ()=>{setLoadingView(! loadingView)}, 3100)
     }
   },[]);
-  //console.log(connected, heartbeat)
+  useEffect(()=>{
+    selectedDevice === undefined && setSelectedDevice('Tente novamente!')
+  },[selectedDevice]);
   return(
     <ConnectionWrapper>
       <Logo src={logo} />
