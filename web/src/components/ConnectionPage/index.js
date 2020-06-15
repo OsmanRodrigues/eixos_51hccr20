@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
 
+import isWebBluetoothEnabled from '../../utils/checkBTCompatibility'
+import  heartBeat  from '../../utils/bandConnector'
+
 import {
   ConnectionWrapper, AlertDialog, DeviceButton,
   SearchButton, CheckDialog, ConfirmButton, ReconfirmButton,
@@ -24,9 +27,47 @@ const ConnectionPage=()=>{
   const [loadingView, setLoadingView] = useState(true);
   const [connected, setConnected] = useState(false);
   const [heartbeat, setHeartbeat] = useState(false);
+  
+  const [selectedDevice, setSelectedDevice] = useState('');
+  const [beat,setBeat] = useState(0);
+  
+  const database_url = "https://hackccr20-62d92.firebaseio.com"
 
-  const [selectedDevice, setSelectedDevice] = useState('MiBand 4');
+  // Example POST method implementation:
+  const postData = async (url = '', data = {}) => {
+    // Default options are marked with *
+    const response = await fetch(url, {
+      method: 'POST', // *GET, POST, PUT, DELETE, etc.
+      headers: {
+        'Content-Type': 'application/json'
+        // 'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: JSON.stringify(data) // body data type must match "Content-Type" header
+    });
+    return response.json(); // parses JSON response into native JavaScript objects
+  }
 
+  const handleHeartNotification = (event) => {
+    let value = event.target.value;
+    setBeat(value.getUint16());
+    postData(database_url + "/time_data.json", {
+        name: "joao",
+        time: Date.now(),
+        batimentos : value.getUint16()
+    }).then(data => {
+      console.log(data); // JSON data parsed by `response.json()` call
+    });
+  }
+
+  const  scanForDevices = async () => {
+    if(isWebBluetoothEnabled()){
+      let name = await heartBeat(handleHeartNotification);
+      setSelectedDevice(name);
+    }else{
+      // enable flag
+    }
+  }
+  
   const conditionalRender=()=>{
     if(loadingView === true){
       return(
@@ -42,13 +83,13 @@ const ConnectionPage=()=>{
           <AlertDialog>
             <HighlightText>Selecione</HighlightText> sua pulseira:
           </AlertDialog>
-
+          
           <DeviceButton>
             <ImageIcon src={band}/>
             <DeviceName>{selectedDevice}</DeviceName>
           </DeviceButton>
 
-          <SearchButton>Procure um novo dispositivo</SearchButton>
+          <SearchButton onClick={scanForDevices} >Procure um novo dispositivo</SearchButton>
 
           <CheckDialog>
             Sua matrícula é  <HighlightText>{userId}</HighlightText>, 
