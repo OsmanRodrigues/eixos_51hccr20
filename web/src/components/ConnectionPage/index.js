@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useHistory, useParams} from 'react-router-dom';
-
+import api from '../../services/api';
 import isWebBluetoothEnabled from '../../utils/checkBTCompatibility'
 import  heartBeat  from '../../utils/bandConnector'
 

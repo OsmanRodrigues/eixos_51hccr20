@@ -3,7 +3,6 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom';
 
 import LoginPage from './components/LoginPage';
 import ConnectionPage from './components/ConnectionPage';
-import ValidatedPage from './components/ValidatedPage';
 
 const Routes =()=>{
   return(
@@ -11,8 +10,6 @@ const Routes =()=>{
       <Switch>
         <Route component={LoginPage} exact path='/'/>
         <Route component={ConnectionPage} exact path='/connect/:userId'/>
-        <Route component={ValidatedPage} exact path='/validated'/>
-
         <div path='/'><h1>Opa! Página não encontrada.</h1></div>
       </Switch>
     </BrowserRouter>
