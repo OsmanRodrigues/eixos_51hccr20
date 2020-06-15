@@ -40,9 +40,9 @@ build/Release
 # Dependency directories
 build/
 node_modules/
+services/
 jspm_packages/
 !uploads/.gitkeep
-!services/.gitkeep
 *sqlite
 
 # TypeScript v1 declaration files
