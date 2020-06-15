@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import login_background from '../../assets/login_background.png';
+import login_background_desktop from '../../assets/login_background_desktop.jpg';
 
 export const LoginWrapper = styled.main`
+  background-image: url(${login_background_desktop});
+  background-size:100% 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

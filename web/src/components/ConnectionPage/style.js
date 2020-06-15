@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const ConnectionWrapper=styled.main`
-  background-color: #f5f5f5;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -14,6 +14,18 @@ export const ConditionalContent = styled.div`
   flex-direction: column;
   align-items: center;
   overflow: none;
+`;
+export const LoadingView = styled.div`
+  position: fixed;
+  top:25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: none;
+`;
+export const LoadingGif = styled.img`
+  max-width: 100%;
 `;
 export const AlertDialog = styled.p`
   text-align: justify;
@@ -42,24 +54,23 @@ export const DeviceButton = styled.button`
   margin: 4px 0px 0px 0px;
   cursor: pointer;
   &:hover{
-    background: #eeeeee;
+    background: #cccccc;
     outline: none;
   };
   &:active{
     background: #cccccc;
     outline: none;
-    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.5)
   };
   &:focus{
+    background-color: #dbffe5;
     outline: none;
-    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.5)
   };
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 `;
 export const SearchButton = styled.button`
   height: 78px;
   width:296px;
-  font-size: xx-small;
+  font-size: x-small;
   background-color: #f0f0f0;
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -72,7 +83,7 @@ export const SearchButton = styled.button`
   margin: 0;
   cursor: pointer;
   &:hover{
-    background: #eeeeee;
+    background: #cccccc;
     outline: none;
   };
   &:active{
@@ -82,11 +93,13 @@ export const SearchButton = styled.button`
   };
   &:focus{
     outline: none;
+    box-shadow: 0 0 0 0.1rem rgba(0,123,255,.5)
   };
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 `;
 export const CheckDialog = styled.span`
   text-align: center;
+  font-size: medium;
 `;
 export const ConfirmButton = styled.button` 
   cursor: pointer;
@@ -135,24 +148,55 @@ export const ReconfirmButton = styled.button`
   };
   -webkit-tap-highlight-color: rgba(0,0,0,0);
 `;
+export const DisconnectButton = styled.button` 
+  height: auto;
+  width:auto;
+  font-size: small;
+  border: none;
+  background: none;
+  color: #b00000;
+  padding: 0;
+  text-align: center;
+  text-decoration: underline;
+  display: inline-block;
+  margin: 0;
+  cursor: pointer;
+  &:hover{
+    background: #eeeeee;
+    outline: none;
+  };
+  &:active{
+    background: #cccccc;
+    outline: none;
+  };
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+`;
 export const SuccessDialog = styled.h1`
 
 `;
 export const StatusDialog = styled.span`
   color: #257D23;
   font-size: x-large;
-  
+`;
+export const SloganText = styled.p`
+  font-size: large;
+  position: fixed;
+  top: 80vh;
+`;
+export const HighlightText = styled.span`
+  color: #b00000;
+`;
+export const HighlightIcon = styled.span`
+  font-size: large;
+  color: #257D23;
+  position: fixed;
 `;
 export const StatusIcon = styled.img`
   height: 296px;
   width:296px;
 `;
-export const SloganText = styled.p`
-  position: fixed;
-
-  top: 80vh;
-  
-`;
-export const HighlightText = styled.span`
-  color: #b00000;
+export const FireflyIcon = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
