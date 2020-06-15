@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect, isValidElement} from 'react';
 import {useHistory} from 'react-router-dom';
+import {useValidLocalInfos} from '../../hooks/hooks';
 
 import {
   LoginWrapper, Logo, CheckDialog,
@@ -15,17 +16,21 @@ import smartphone_connection from '../../assets/smartphone_conection.png';
 
 const LoginPage=()=>{
 
+  useValidLocalInfos();
+
   const history = useHistory();
   const [inputForm, setInputForm] = useState('');
 
   const handleInputChange=(e)=>{
     setInputForm(e.target.value);
   };
-  //TODO request
+  
   const handleLogin =(e)=>{
     e.preventDefault();
+    localStorage.setItem(`eixosLocalUserInfos`, JSON.stringify({token: inputForm}));
     history.replace(`/connect/${inputForm}`);
   };
+  
   return(
     <LoginWrapper>
       <Logo src={logo}/>
