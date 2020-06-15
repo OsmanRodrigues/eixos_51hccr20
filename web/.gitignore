@@ -40,7 +40,7 @@ build/Release
 # Dependency directories
 build/
 node_modules/
-services/
+src/services/
 jspm_packages/
 !uploads/.gitkeep
 *sqlite
