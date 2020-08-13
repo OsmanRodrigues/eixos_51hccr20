@@ -7,7 +7,7 @@ import  heartBeat  from '../../utils/bandConnector'
 import {
   ConnectionWrapper, AlertDialog, DeviceButton,
   SearchButton, CheckDialog, ConfirmButton, ReconfirmButton,
-  SuccessDialog, StatusDialog, StatusIcon, SloganText,
+  SuccessDialog, StatusDialog, SloganText,
   HighlightText, ImageIcon, ConditionalContent, DeviceName,
   LoadingGif, LoadingView, HighlightIcon, DisconnectButton,
   FireflyIcon
@@ -17,7 +17,6 @@ import {BsHeartFill} from 'react-icons/bs';
 
 import logo from '../../assets/logo_red.png';
 import band from '../../assets/band.png';
-import bandRed from '../../assets/band_red.png';
 import loading from '../../assets/loading.gif';
 
 const ConnectionPage=()=>{
@@ -110,22 +109,31 @@ const ConnectionPage=()=>{
             
             <StatusDialog>{beat} bpm</StatusDialog>
             
+            <FireflyIcon>
+              {
+                heartbeat ?
+                <HighlightIcon>
+                  <BsHeartFill conditionalColor/>
+                </HighlightIcon>
+              :
+                <HighlightIcon>
+                  <BsHeartFill />
+                </HighlightIcon>
+              }
+            </FireflyIcon>
+
             <DisconnectButton onClick={()=> {setConnected(false)}}>
               Desconectar
             </DisconnectButton>
-            
-            <FireflyIcon>
-              {heartbeat === false ? 
-              <HighlightIcon></HighlightIcon>
-              :
-              <HighlightIcon><BsHeartFill/></HighlightIcon>}
-
-              <StatusIcon src={bandRed}/>
-            </FireflyIcon>
 
             <SloganText>
-              Viaje com saúde,<br/> 
-              viaje com <HighlightText>EIXOS</HighlightText>.
+              Viaje com saúde,
+              <br/> 
+              viaje com
+              <br/> 
+              <HighlightText>
+                EIXOS
+              </HighlightText>
             </SloganText>
           </ConditionalContent>
         )

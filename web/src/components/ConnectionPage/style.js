@@ -13,11 +13,10 @@ export const ConditionalContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   overflow: none;
 `;
 export const LoadingView = styled.div`
-  position: fixed;
-  top:25%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +24,7 @@ export const LoadingView = styled.div`
   overflow: none;
 `;
 export const LoadingGif = styled.img`
-  max-width: 100%;
+  max-width: 364px;
 `;
 export const AlertDialog = styled.p`
   text-align: justify;
@@ -179,24 +178,22 @@ export const StatusDialog = styled.span`
   font-size: x-large;
 `;
 export const SloganText = styled.p`
-  font-size: large;
+  font-size: medium;
+  text-align: center;
   position: fixed;
-  top: 80vh;
+  left: 20vw;
+  right: 20vw;
+  bottom: 0px;
 `;
 export const HighlightText = styled.span`
   color: #b00000;
 `;
 export const HighlightIcon = styled.span`
-  font-size: large;
-  color: #257D23;
-  position: fixed;
-`;
-export const StatusIcon = styled.img`
-  height: 296px;
-  width:296px;
+  font-size: xx-large;
+  color: ${props =>
+   props.children.props.conditionalColor ? '#257D23':'#b00000'
+  };
 `;
 export const FireflyIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  position: relative;
 `;

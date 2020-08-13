@@ -1,4 +1,4 @@
-import React, {useState, useEffect, isValidElement} from 'react';
+import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
 import {useValidLocalInfos} from '../../hooks/hooks';
 

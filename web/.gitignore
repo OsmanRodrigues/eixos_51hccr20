@@ -38,12 +38,10 @@ bower_components
 build/Release
 
 # Dependency directories
-build/
-node_modules/
-jspm_packages/
-!uploads/.gitkeep
-!services/.gitkeep
-*sqlite
+/build
+/node_modules
+api.js
+/jspm_packages
 
 # TypeScript v1 declaration files
 typings/
