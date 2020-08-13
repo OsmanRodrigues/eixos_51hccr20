@@ -1,7 +1,7 @@
 # EIXOS
 
 ## Descrição
-A EIXOS é um serviço SaaP(Service as as Product) que integra uma pulseira inteligente, com o objetivo de captar dos caminhoneiros e fornecer aos profissionais de saúde, dados mais detalhados para prevenção dos condutores, através de uma interface interativa e humanizada. Para que de forma prática, simples e participativa, os caminhoneiros possam receber informações e possibilidade de cuidado, através do canal que mais usam, o whatsapp.
+A EIXOS é um serviço SaaP(Service as as Product) que integra uma pulseira inteligente, com o objetivo de captar dos caminhoneiros e fornecer aos profissionais de saúde dados mais detalhados para prevenção dos condutores, através de uma interface interativa e humanizada, para que, de forma prática, simples e participativa, os caminhoneiros possam receber informações e possibilidade de cuidado, através do canal digital que mais utilizam, o Whatsapp.
 
 ## Saiba mais
 
