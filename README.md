@@ -5,6 +5,15 @@ A EIXOS é um serviço SaaP(Service as as Product) que integra uma pulseira inte
 
 EIXOS foi desenvolvido como projeto durante o Hackathon CCR 2020, organizado pela Shawee. 
 
+## Tecnologias principais
+<li>HTML, CSS e JavaScript</li>     
+
+## Tecnologias auxiliares
+<li>Biblioteca principal: React.js;</li>
+<li>Estilização: Styled Components;</li> 
+<li>API: Web Bluetooth API;</li>
+<li>Requisições HTTP: Axios;</li>
+
 ## Saiba mais
 
 ### Web App
